@@ -19,7 +19,7 @@ const getLinks = (req, res) => {
 const insertLink = (req, res) => {
   const { name, url } = req.body;
   pool.query(
-    "INSERT INTO favlinks (id, name, url) VALUES ($1, $2)",
+    "INSERT INTO favlinks (name, url) VALUES ($1, $2)",
     [name, url],
     (error, result) => {
       if (error) {

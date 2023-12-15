@@ -2,13 +2,13 @@ import { useState } from "react"
 
 function Form({addLink}){
     const [name, setName] = useState("");
-    const [URL, setURL] = useState("");
+    const [url, setURL] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = {
             name,
-            URL
+            url
         }
 
         addLink(data);
@@ -23,7 +23,7 @@ function Form({addLink}){
             <br />
             <br />
             <label>Link URL:</label>
-            <input type="text" id="linkURL" name="linkURL" value={URL} onChange={(e) => setURL(e.target.value)}/>
+            <input type="text" id="linkURL" name="linkURL" value={url} onChange={(e) => setURL(e.target.value)}/>
             <br/>
             <br />
             <input type="submit" value="Submit"></input>

@@ -14,11 +14,30 @@ function LinkContainer(){
         setFavLinks(updatedLinks);
       }
     
-      const handleSubmit = (favLink) => {
-        if (!Array.isArray(favLinks)) {
-          setFavLinks([favLink]);
-        } else {
-          setFavLinks([...favLinks, favLink]);
+      const handleSubmit = async (favLink) => {
+        // if (!Array.isArray(favLinks)) {
+        //   setFavLinks([favLink]);
+        // } else {
+        //   setFavLinks([...favLinks, favLink]);
+        // }
+        try {
+          const response = await fetch("http://localhost:3000/api/links", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(favLink)
+          });
+    
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+
+          console.log(response)
+    
+        } catch (error) {
+          console.error("Error:", error);
+          console.log("There has been a error creating a link")
         }
       };
 
