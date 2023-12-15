@@ -15,10 +15,10 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/dist", "index.html"));
 });
 
-
 app.get('/api/links', db.getLinks);
 app.post("/api/links", db.insertLink);
 app.put("/api/links/:id", db.updateLink);
+app.delete("/api/links/:id", db.deleteLink);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
