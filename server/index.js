@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const db = require("./db")
+const db = require("./db");
 
 const app = express();
 app.use(express.json());
@@ -16,8 +16,9 @@ app.get("/", (req, res) => {
 });
 
 
-app.get('/api/links', db.getLinks)
-app.post("/api/links", db.insertLink)
+app.get('/api/links', db.getLinks);
+app.post("/api/links", db.insertLink);
+app.put("/api/links/:id", db.updateLink);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
